@@ -28,7 +28,7 @@ jobs:
       - name: Create Issues comment
         if: github.event_name == 'issues'
         id: comment
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
           emoji: heart
 
       - name: Set up Ruby 3
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v4
         with:
           ruby-version: 3.1.2
 
@@ -576,7 +576,7 @@ jobs:
 
       - name: Add Issues labels
         if: env.issues == 'true' && env.iscustom == 'true'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'add-labels'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -585,7 +585,7 @@ jobs:
 
       - name: Update Comment Begin
         if: env.issues == 'true' && env.iscustom == 'true'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -600,7 +600,7 @@ jobs:
 
       - name: Update Comment Error
         if: env.issues == 'true' && env.iscustom == 'false'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -617,7 +617,7 @@ jobs:
 
       - name: Update Comment Warinfo
         if: env.issues == 'true' && env.warinfo != ''
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -636,7 +636,7 @@ jobs:
 
       - name: Update Comment Invalid
         if: env.issues == 'false'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -919,7 +919,7 @@ jobs:
 
       - name: Upload to Artifacts
         if: env.iscustom == 'true' && success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Redpill-${{ env.model }}-${{ env.version }}-${{ env.release_tag }}
           path: |
@@ -950,7 +950,7 @@ jobs:
 
       - name: Update Comment Finish
         if: env.issues == 'true' && env.iscustom == 'true' && success()
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -970,7 +970,7 @@ jobs:
 
       - name: Close Issues
         if: env.issues == 'true' && env.iscustom == 'true' && success()
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -978,7 +978,7 @@ jobs:
 
       - name: Update Comment Fail
         if: env.issues == 'true' && env.iscustom == 'true' && failure()
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -997,7 +997,7 @@ jobs:
 
       - name: Update Comment Warinfo
         if: env.issues == 'true' && env.warinfo != ''
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v4
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
