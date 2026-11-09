@@ -997,7 +997,7 @@ jobs:
 
       - name: Update Comment Warinfo
         if: env.issues == 'true' && env.warinfo != ''
-        uses: actions-cool/issues-helper@v4
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'update-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
